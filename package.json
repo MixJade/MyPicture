@@ -1,0 +1,15 @@
+{
+  "name": "mypicture",
+  "version": "1.0.0",
+  "description": "保存图片与小说",
+  "main": "index.js",
+  "scripts": {
+    "test": "node app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
