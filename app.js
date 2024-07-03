@@ -9,4 +9,5 @@ app.use('/pic', express.static(path.join(__dirname, 'public')));
 app.listen(9527, function () {
     // 服务器正在监听9527端口
     console.log('Server is running at http://127.0.0.1:9527/pic');
+    console.log('测试图片 at http://127.0.0.1:9527/pic/wallpaper/wp003.jpeg');
 });
