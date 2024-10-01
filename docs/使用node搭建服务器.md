@@ -2,6 +2,8 @@
 
 > 2024年7月3日19:59:51
 
+## 一、搭建教程
+
 创建一个本地服务器并在 Node.js 中提供静态文件的一个常见方式是使用 express.js 框架和 middleware。下面是一种可能的做法：
 
 1.首先，确保您的设备上已经安装了 node.js 和 npm 。若还未安装，可从此处下载：https://nodejs.org/
@@ -34,6 +36,7 @@ app.use('/pic', express.static(path.join(__dirname, 'public')));
 app.listen(9527, function () {
     // 服务器正在监听9527端口
     console.log('Server is running at http://127.0.0.1:9527/pic');
+    console.log('测试图片 at http://127.0.0.1:9527/pic/wallpaper/wp003.jpeg');
 });
 ```
 这就会创建一个新的 Express 应用，并且还配置了一个 middleware 来在 "/myPic" URL 下提供在你的 "c:/mycod" 文件夹中的静态文件。
@@ -47,3 +50,35 @@ node app.js
 ```
 
 现在，你就可以在浏览器中访问 `http://127.0.0.1:9527/myPic/xxx.jpg` 来查看你在 "c:/mycod" 下的 "xxx.jpg" 文件了。
+
+## 二、附录：package.json
+
+```json
+{
+  "name": "mypicture",
+  "version": "1.0.0",
+  "description": "保存图片与小说",
+  "main": "index.js",
+  "scripts": {
+    "test": "node app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
+```
+
+## 三、附录：目录结构
+
+```sh
+├─docs
+└─public
+    ├─avatar
+    └─wallpaper
+├─app.js
+└─package.json
+```
+

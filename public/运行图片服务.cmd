@@ -1,3 +1,3 @@
 @echo off
-cd ..
-node app.js
+cd ../script
+java MyServer
