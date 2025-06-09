@@ -37,7 +37,12 @@
 <div id="topBtn">
     <button type="button" onclick="wws.changeSvg('win10desktop.svg')">win10的svg</button>
     <button type="button" onclick="wws.changeSvg('win11desktop.svg')">win11的svg</button>
+    <button type="button" onclick="wws.showMe()">展示</button>
 </div>
+<dialog id="myDialog">
+    <ul id="imgUl"></ul>
+    <button type="button" onclick="wws.closeMe()">关闭</button>
+</dialog>
 </body>
 <script>
     "use strict";
@@ -51,6 +56,7 @@
 
         const mySvg = document.getElementById("mySvg")
         const backImg = document.getElementById("backImg")
+        const imgUl = document.getElementById("imgUl")
 
         const changeSvg = (newSvgSrc) => {
             mySvg.src = newSvgSrc;
@@ -66,11 +72,33 @@
                 const imgName = href.split("?")[1]
                 changeImg(imgName)
             }
+            // 图片列表
+            fetch("http://localhost:9527/public/list").then(resp => resp.text())
+                .then(data => {
+                    const arr = data.split(",");
+                    arr.forEach(item => {
+                        imgUl.innerHTML += `<li><a href="#" onclick="wws.changeImg('${item}')">${item}</a></li>`
+                    });
+                })
         }
 
+        const dialog = document.getElementById("myDialog");
+        /**
+         * 展示模态框
+         */
+        const showMe = () => {
+            dialog.showModal();
+        }
+        /**
+         * 关闭模态框
+         */
+        const closeMe = () => {
+            dialog.close()
+        }
         return {
-            changeSvg
+            changeSvg, showMe, closeMe,changeImg
         }
     })();
+
 </script>
 </html>
