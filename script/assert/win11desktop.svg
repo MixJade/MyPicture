@@ -1,0 +1,17 @@
+<svg width="1920" height="1080" xmlns="http://www.w3.org/2000/svg">
+    <!-- 弧形区域-->
+    <path d="M0 0,V150, Q960 660 ,1920 150,V0" stroke="transparent" fill="#2F4858" fill-opacity="0.5"/>
+    <!-- 左长方形-->
+    <!-- H x绘制水平线,V y绘制垂直线,标明在x轴或y轴移动到的位置-->
+    <path d="M8,8 H454 V608 H227 V776 H8 V0"  fill="black" stroke="#529b2e" fill-opacity="0.8"
+          stroke-width="6"/>
+    <polyline points="227,8 227,776" stroke="#529b2e" stroke-width="6" stroke-dasharray="10 10"/>
+    <polyline points="8,310 454,310" stroke="#529b2e" stroke-width="6" stroke-dasharray="10 10"/>
+    <!-- 右边长方形-->
+    <rect x="1680" y="8" width="222" height="768" fill="black" stroke="#529b2e" fill-opacity="0.8"
+          stroke-width="6"/>
+    <polyline points="1680,442 1902,442" stroke="#529b2e" stroke-width="6" stroke-dasharray="10 10"/>
+    <!-- 中间的圆-->
+    <circle cx="960" cy="400" r="260" fill="rgb(48,49,51)" stroke="#529b2e" stroke-width="12"/>
+    <text x="1760" y="1000" style="font-size:45px; fill:white;">Hello</text>
+</svg>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>桌面背景全屏</title>
+    <style>
+        #divFullScreen {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 1920px;
+            height: 1080px;
+        }
+
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        #topBtn {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            background-color: #3c3c3c;
+            padding: 6px;
+        }
+
+        #imgUl {
+            padding: 12px 48px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<div id="divFullScreen">
+    <img id="backImg" src="http://127.0.0.1:9527/public/wallpaper/wp001.jpg" alt="桌面图片">
+    <img id="mySvg" src="win11desktop.svg" alt="svg图"/>
+</div>
+<div id="topBtn">
+    <button type="button" onclick="wws.changeSvg('win10desktop.svg')">win10的svg</button>
+    <button type="button" onclick="wws.changeSvg('win11desktop.svg')">win11的svg</button>
+    <button type="button" onclick="wws.showMe()">展示</button>
+</div>
+<dialog id="myDialog">
+    <button style="float: right" type="button" onclick="wws.closeMe()">关闭</button>
+    <ul id="imgUl"></ul>
+</dialog>
+</body>
+<script>
+    "use strict";
+    const wws = (() => {
+        const divFullScreen = document.getElementById('divFullScreen');
+        if (divFullScreen != null) {
+            divFullScreen.addEventListener('click', function () {
+                divFullScreen.requestFullscreen();
+            });
+        }
+
+        const mySvg = document.getElementById("mySvg")
+        const backImg = document.getElementById("backImg")
+        const imgUl = document.getElementById("imgUl")
+
+        const changeSvg = (newSvgSrc) => {
+            mySvg.src = newSvgSrc;
+        }
+
+        const changeImg = (newImgSrc) => {
+            backImg.src = `http://127.0.0.1:9527/public/wallpaper/${newImgSrc}`
+        }
+
+        window.onload = () => {
+            // 图片列表
+            fetch("http://localhost:9527/public/list").then(resp => resp.text())
+                .then(data => {
+                    const arr = data.split(",");
+                    arr.forEach(item => {
+                        imgUl.innerHTML += `<li><a href="#" onclick="wws.changeImg('${item}')">${item}</a></li>`
+                    });
+                })
+        }
+
+        const dialog = document.getElementById("myDialog");
+        /**
+         * 展示模态框
+         */
+        const showMe = () => {
+            dialog.showModal();
+        }
+        /**
+         * 关闭模态框
+         */
+        const closeMe = () => {
+            dialog.close()
+        }
+        return {
+            changeSvg, showMe, closeMe, changeImg
+        }
+    })();
+
+</script>
+</html>

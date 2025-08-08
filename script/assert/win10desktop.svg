@@ -1,0 +1,38 @@
+<svg width="1920" height="1080" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <!-- 正方形边框的渐变色-->
+        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:rgb(250,0,0);stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:rgb(180,130,48);stop-opacity:1"/>
+        </linearGradient>
+        <!-- 圆的边框渐变色-->
+        <linearGradient id="grad2" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color:rgb(250,0,0);stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:rgb(255,215,0);stop-opacity:1"/>
+        </linearGradient>
+    </defs>
+
+    <!-- 弧形区域-->
+    <path d="M0 0,V150, Q960 660 ,1920 150,V0" stroke="transparent" fill="black" fill-opacity="0.3"/>
+    <!-- 左上角长方形-->
+    <rect x="8" y="8" rx="8" ry="8" width="212" height="410" fill="rgb(48,49,51)" stroke="url(#grad1)"
+          stroke-width="5px"/>
+    <!-- 左中长方形-->
+    <rect x="8" y="430" rx="8" ry="8" width="212" height="270" fill="rgb(48,49,51)" stroke="url(#grad1)"
+          stroke-width="5px"/>
+    <!-- 左上偏右长方形-->
+    <rect x="234" y="8" rx="8" ry="8" width="212" height="410" fill="rgb(48,49,51)" stroke="url(#grad1)"
+          stroke-width="5px"/>
+    <!-- 左中偏右长方形-->
+    <rect x="234" y="430" rx="8" ry="8" width="212" height="270" fill="rgb(48,49,51)" stroke="url(#grad1)"
+          stroke-width="5px"/>
+    <!-- 左下长方形-->
+    <rect x="8" y="716" rx="8" ry="8" width="438" height="278" fill="rgb(48,49,51)" stroke="url(#grad1)"
+          stroke-width="5px"/>
+    <!-- 右边长方形-->
+    <rect x="1690" y="8" rx="8" ry="8" width="212" height="410" fill="rgb(48,49,51)" stroke="url(#grad1)"
+          stroke-width="5px"/>
+    <!-- 中间的圆-->
+    <circle cx="960" cy="400" r="260" fill="rgb(48,49,51)" stroke="url(#grad2)" stroke-width="8"/>
+    <text x="1760" y="1000" style="font-size:45px; fill:white;">Hello</text>
+</svg>
